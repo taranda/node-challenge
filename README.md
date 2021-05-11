@@ -55,7 +55,7 @@ The above input results in `query` equaling:
 
 `INSERT INTO report_notes(message, report_id, created_by, is_pilot_created, is_pilot_visible, claim_report_id) values($!, $2, $3, $4, $5, $6) RETURNING *`
 
-As written, the above `INSERT` statement is generated regardless of the elements provided in the body. Any missing elements `NULL` value inserted into the database.
+As written, the above `INSERT` statement is generated regardless of the elements provided in the body. Any missing fields will have a `NULL` value inserted into the database (our database driver converts `undefined` into `null`).
 
 For example:
 ```
